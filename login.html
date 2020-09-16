@@ -1,0 +1,158 @@
+<html>
+
+<head>
+    <title>techACAD Login Form Validation</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Raleway);
+
+        h2 {
+            padding: 30px 35px;
+            margin: -10px -50px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        hr {
+            margin: 10px -50px;
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            width: 40%;
+            height: 60%;
+            margin-left: 25%;
+            margin-top: 8%;
+            font-family: 'Raleway', sans-serif;
+            font-size: 120%;
+
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgb(46, 2, 2);
+            border-radius: 10px;
+            font-family: raleway;
+            float: left;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-bottom: 5%;
+            padding-top: 5%;
+            background-color: rgb(3, 182, 173);
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            height: 10%;
+            padding: 5px;
+            margin-bottom: 25px;
+            margin-top: 5px;
+            border: 2px solid #ccc;
+            color: #4f4f4f;
+            font-size: 100%;
+            border-radius: 5px;
+        }
+
+        label {
+            font-size: 140%;
+            font-weight: bold;
+        }
+
+        center {
+            font-size: 32px;
+        }
+
+        .note {
+            color: red;
+        }
+
+        .valid {
+            color: darkgreen;
+        }
+
+        .back {
+            text-decoration: none;
+            border: 1px solid rgb(0, 143, 255);
+            background-color: rgb(0, 214, 255);
+            padding: 3px 20px;
+            border-radius: 2px;
+            color: black;
+        }
+
+        input[type=button] {
+            font-size: 100%;
+            background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+            border: 1px solid #e5a900;
+            color: #4E4D4B;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px 0;
+            outline: none;
+        }
+
+        input[type=button]:hover {
+            background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+        }
+
+        body {
+            background-image: url("back2.jpg");
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h2>techACAD Login</h2>
+            <form id="form_id" action="website.html" method="post" name="myform">
+                <label>User Name :</label>
+                <input type="text" name="name" id="username" />
+                <label>Password :</label>
+                <input type="password" name="password" id="password" />
+                <input type="button" value="login" id="submit" onclick="validateform()" />
+            </form>
+            <span><b class="note">Note : </b>For this demo use following username and password. <br /><b
+                    class="valid">User Name : anujdube12<br />Password : ad@123</b></span>
+        </div>
+    </div>
+    <script>  
+        function validateform(){  
+        var name=document.myform.name.value;  
+        var password=document.myform.password.value;  
+          
+        var nameRegx = /[A-Za-z ]$/;
+
+        if (name==null || name==""){  
+          alert("Username can't be blank");  
+          return false;  
+        }
+        else if (nameRegx.test(name) == false||name.length > 20) {
+            alert("Wrong Username");
+            return false;
+        }
+        else if (password == "") {
+            alert("Please enter password");
+            return false;
+        }
+        else if(password.length<6){  
+          alert("Wrong Password");  
+          return false;  
+        }
+        else{
+            alert("Logging in sucessfully")
+            location.reload();
+        }
+          
+        }  
+    </script>  
+</body>
+
+</html>
